@@ -45,8 +45,9 @@ class App extends React.Component {
   }
 
   setValue(value) {
+    this.setState({ loading: true })
     this.simpleStorageInstance.set(value, { from: this.state.account, gas: 50000 }).then((r) => {
-      this.setState({ value })
+      this.setState({ value, loading: false })
     })
   }
 
